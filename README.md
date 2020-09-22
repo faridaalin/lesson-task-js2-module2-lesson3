@@ -1,8 +1,8 @@
 # JavaScript 2 - Module 2
 
-## Lesson Task 3 Question
+## Lesson Task 3 Answer
 
-Use an input box and button to add new objects to an array callled `todos`.
+Use an input box and button to add new objects to an array called `todos`.
 
 Create an HTML list by looping over the array.
 

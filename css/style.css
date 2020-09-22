@@ -1,0 +1,37 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    margin: 20px;
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    padding: 1rem;
+    border-radius: 3px;
+    background: #ebebeb;
+    margin-bottom: 2px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+}
+
+li.checked {
+    opacity: 50%;
+}
+
+li input[type="text"] {
+    background: transparent;
+    border: none;
+    width: 90%;
+    padding: 0.5rem;
+}
