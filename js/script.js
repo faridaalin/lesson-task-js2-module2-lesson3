@@ -3,7 +3,7 @@ const input = document.querySelector(".input");
 const button = document.querySelector(".button");
 
 let todos = getFromStorage();
-renderTodos(todos);
+saveToStorage(todos);
 
 button.addEventListener("click", addItem);
 input.addEventListener("keyup", (e) => {
@@ -33,15 +33,14 @@ function renderTodos(todos) {
 
   list.innerHTML = "";
   todos.forEach((todo) => {
-    todo.isComplete ? cssClass : (cssClass = "");
-
-    list.innerHTML += `<li class="list-item ${cssClass}">
-                        <input type="text" value="${todo.name}" class="item" />
-                        <input type="checkbox" ${
-                          todo.isComplete ? checked : null
-                        } class="checkbox" data-id="${todo.id}" />
-                       </li>
-        `;
+    list.innerHTML += `<li class="list-item ${
+      todo.isComplete ? cssClass : null
+    }">
+    <input type="text" value="${todo.name}" class="item" />
+    <input type="checkbox" ${
+      todo.isComplete ? checked : null
+    } class="checkbox" data-id="${todo.id}" />
+    </li>`;
   });
 
   const checkboxes = document.querySelectorAll(
@@ -60,12 +59,6 @@ function toggleComplete(e) {
   e.target.parentElement.classList.toggle("complete");
 
   const updatedTodos = updatedList(todos, id);
-
-  todos.forEach((todo) => {
-    if (id === todo.id) {
-      todo.isComplete = e.target.checked;
-    }
-  });
 
   saveToStorage(updatedTodos);
 }
