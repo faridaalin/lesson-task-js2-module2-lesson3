@@ -53,6 +53,7 @@ function renderTodos(todos) {
   });
 }
 
+// Toggle completed todo
 function toggleComplete(e) {
   const id = e.target.dataset.id;
 
@@ -69,16 +70,19 @@ function toggleComplete(e) {
   saveToStorage(updatedTodos);
 }
 
+// Update completed todo
 function updatedList(todos, id) {
   const itemIndex = todos.findIndex((todo) => todo.id === parseInt(id));
   todos[itemIndex].isComplete = !todos[itemIndex].isComplete;
   return todos;
 }
 
+//Save to LocalStorage
 function saveToStorage(ItemsToSave) {
   const savedTodos = localStorage.setItem("Todos", JSON.stringify(ItemsToSave));
   renderTodos(ItemsToSave);
 }
+//Save to getFromLocal
 function getFromStorage() {
   if (
     localStorage.getItem("Todos") === null ||
