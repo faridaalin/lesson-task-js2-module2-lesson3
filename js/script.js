@@ -3,14 +3,14 @@ const input = document.querySelector(".input");
 const button = document.querySelector(".button");
 
 let todos = getFromStorage();
-createTodos(todos);
+renderTodos(todos);
 
-// add item to list
 button.addEventListener("click", addItem);
 input.addEventListener("keyup", (e) => {
   (e.key === "Enter" || e.keyCode === 13) && addItem();
 });
 
+// add todo to list
 function addItem() {
   const todoValue = input.value.trim();
 
@@ -23,11 +23,11 @@ function addItem() {
     input.focus();
 
     saveToStorage(todos);
-    createTodos(todos);
   }
 }
 
-function createTodos(todos) {
+// Render todos
+function renderTodos(todos) {
   let cssClass = "complete";
   let checked = "checked";
 
@@ -77,7 +77,7 @@ function updatedList(todos, id) {
 
 function saveToStorage(ItemsToSave) {
   const savedTodos = localStorage.setItem("Todos", JSON.stringify(ItemsToSave));
-  createTodos(ItemsToSave);
+  renderTodos(ItemsToSave);
 }
 function getFromStorage() {
   if (
